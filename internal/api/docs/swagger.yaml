@@ -1,0 +1,703 @@
+definitions:
+  dtos.Appointment:
+    properties:
+      customerId:
+        type: string
+      customerName:
+        type: string
+      date:
+        type: string
+      duration:
+        type: integer
+      id:
+        type: string
+      price:
+        type: integer
+      serviceName:
+        type: string
+      serviceNameId:
+        type: string
+      specialistId:
+        type: string
+      specialistName:
+        type: string
+      status:
+        description: 'TODO: remove'
+        type: integer
+      time:
+        type: string
+    type: object
+  dtos.AppointmentCalendar:
+    properties:
+      date:
+        type: string
+      id:
+        type: string
+      specialistName:
+        type: string
+      status:
+        type: integer
+      time:
+        type: string
+    type: object
+  dtos.AppointmentCalendarCount:
+    properties:
+      canceledCount:
+        type: integer
+      month:
+        type: integer
+      pendingCount:
+        type: integer
+      realizedCount:
+        type: integer
+    type: object
+  dtos.CreateAppointmentBody:
+    properties:
+      customerId:
+        type: string
+      date:
+        type: string
+      serviceId:
+        type: string
+      time:
+        type: string
+    type: object
+  dtos.Customer:
+    properties:
+      birthdate:
+        type: string
+      cpf:
+        type: string
+      email:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+    type: object
+  dtos.CustomerInfoBody:
+    properties:
+      birthdate:
+        type: string
+      cpf:
+        type: string
+      email:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+    type: object
+  dtos.Service:
+    properties:
+      duration:
+        type: integer
+      id:
+        type: string
+      price:
+        type: integer
+      serviceName:
+        type: string
+      serviceNameId:
+        type: string
+      specialistId:
+        type: string
+      specialistName:
+        type: string
+      specialization:
+        type: string
+      specializationId:
+        type: string
+    type: object
+  dtos.ServiceInfoBody:
+    properties:
+      duration:
+        description: in minutes
+        type: integer
+      price:
+        type: integer
+      serviceNameId:
+        type: string
+      specialistId:
+        type: string
+    type: object
+  dtos.Specialization:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+    type: object
+  dtos.SpecializationInfoBody:
+    properties:
+      name:
+        type: string
+    type: object
+  dtos.UpdateAppointmentBody:
+    properties:
+      date:
+        type: string
+      status:
+        type: integer
+      time:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /appointments:
+    get:
+      description: Get a page of appointments with filters sorted by date and time
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Page size
+        in: query
+        name: pageSize
+        type: integer
+      - description: Start date
+        in: query
+        name: startDate
+        type: string
+      - description: End date
+        in: query
+        name: endDate
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/dtos.Appointment'
+            type: array
+      security:
+      - ApiKeyAuth: []
+      summary: List appointments
+      tags:
+      - Appointments
+    post:
+      consumes:
+      - application/json
+      description: Create a new appointment for a customer and service
+      parameters:
+      - description: Appointments info
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.CreateAppointmentBody'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Create appointment
+      tags:
+      - Appointments
+  /appointments/{appointment_id}:
+    delete:
+      description: Delete an appointment by id
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - ApiKeyAuth: []
+      summary: Delete appointment
+      tags:
+      - Appointments
+    get:
+      description: Get an appointment by id
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.Appointment'
+      security:
+      - ApiKeyAuth: []
+      summary: Get appointment
+      tags:
+      - Appointments
+    put:
+      consumes:
+      - application/json
+      description: Create a new appointment for a customer and service
+      parameters:
+      - description: Appointments info
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.UpdateAppointmentBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Create appointment
+      tags:
+      - Appointments
+  /appointments/calendar:
+    get:
+      description: Get appointments for calendar in a interval of date
+      parameters:
+      - description: Year
+        in: query
+        name: year
+        type: integer
+      - description: Start date
+        in: query
+        name: startDate
+        type: string
+      - description: End date
+        in: query
+        name: endDate
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/dtos.AppointmentCalendar'
+            type: array
+      security:
+      - ApiKeyAuth: []
+      summary: List appointments for calendar
+      tags:
+      - Appointments
+  /appointments/calendar/count:
+    get:
+      description: Get appointments count for calendar
+      parameters:
+      - description: Year
+        in: query
+        name: year
+        type: integer
+      - description: Start date
+        in: query
+        name: startDate
+        type: string
+      - description: End date
+        in: query
+        name: endDate
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/dtos.AppointmentCalendarCount'
+            type: array
+      security:
+      - ApiKeyAuth: []
+      summary: Count appointments for calendar
+      tags:
+      - Appointments
+  /appointments/count:
+    get:
+      description: Count appointments with filters
+      parameters:
+      - description: Start date
+        in: query
+        name: startDate
+        type: string
+      - description: End date
+        in: query
+        name: endDate
+        type: string
+      - description: Service Name ID
+        in: query
+        name: serviceNameId
+        type: string
+      - description: Specialist ID
+        in: query
+        name: specialistId
+        type: string
+      - description: Customer ID
+        in: query
+        name: customerId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+      security:
+      - ApiKeyAuth: []
+      summary: Count appointments
+      tags:
+      - Appointments
+  /customers:
+    get:
+      description: Get a page of customers with filters
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Page size
+        in: query
+        name: pageSize
+        type: integer
+      - description: Name
+        in: query
+        name: name
+        type: string
+      - description: CPF
+        in: query
+        name: cpf
+        type: string
+      - description: Phone
+        in: query
+        name: phone
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/dtos.Customer'
+            type: array
+      security:
+      - ApiKeyAuth: []
+      summary: List customers
+      tags:
+      - Customers
+    post:
+      description: Create an new customer
+      parameters:
+      - description: Customer information
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.CustomerInfoBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.Customer'
+      security:
+      - ApiKeyAuth: []
+      summary: Create customer
+      tags:
+      - Customers
+  /customers/{customer_id}:
+    delete:
+      description: Delete a customer by id
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - ApiKeyAuth: []
+      summary: Delete customer
+      tags:
+      - Customers
+    get:
+      description: Get a customer by id
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.Customer'
+      security:
+      - ApiKeyAuth: []
+      summary: Get customer
+      tags:
+      - Customers
+    put:
+      description: Update a customer by id
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.Customer'
+      security:
+      - ApiKeyAuth: []
+      summary: Update customer
+      tags:
+      - Customers
+  /customers/count:
+    get:
+      description: Count customers with filters
+      parameters:
+      - description: Name
+        in: query
+        name: name
+        type: string
+      - description: CPF
+        in: query
+        name: cpf
+        type: string
+      - description: Phone
+        in: query
+        name: phone
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+      security:
+      - ApiKeyAuth: []
+      summary: Count customers
+      tags:
+      - Customers
+  /health:
+    get:
+      description: Check if the service is healthy
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Health check
+      tags:
+      - API
+  /services:
+    get:
+      description: Get a page of services with filters
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Page size
+        in: query
+        name: pageSize
+        type: integer
+      - description: Service
+        in: query
+        name: service
+        type: string
+      - description: Specialist
+        in: query
+        name: specialist
+        type: string
+      - description: Specialization
+        in: query
+        name: specialization
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/dtos.Service'
+            type: array
+      security:
+      - ApiKeyAuth: []
+      summary: List services
+      tags:
+      - Services
+    post:
+      description: Create an new service
+      parameters:
+      - description: Service information
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.ServiceInfoBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.Service'
+      security:
+      - ApiKeyAuth: []
+      summary: Create service
+      tags:
+      - Services
+  /services/{service_id}:
+    delete:
+      description: Delete an service by id
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - ApiKeyAuth: []
+      summary: Delete service
+      tags:
+      - Services
+    get:
+      description: Get a service by id
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.Service'
+      security:
+      - ApiKeyAuth: []
+      summary: Get service
+      tags:
+      - Services
+    put:
+      description: Create an new service
+      parameters:
+      - description: Service information
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.ServiceInfoBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.Service'
+      security:
+      - ApiKeyAuth: []
+      summary: Create service
+      tags:
+      - Services
+  /services/count:
+    get:
+      description: Count services with filters
+      parameters:
+      - description: Service
+        in: query
+        name: service
+        type: string
+      - description: Specialist
+        in: query
+        name: specialist
+        type: string
+      - description: Specialization
+        in: query
+        name: specialization
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+      security:
+      - ApiKeyAuth: []
+      summary: Count services
+      tags:
+      - Services
+  /specializations:
+    get:
+      description: Get a page of specializations with filters
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Page size
+        in: query
+        name: pageSize
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/dtos.Specialization'
+            type: array
+      security:
+      - ApiKeyAuth: []
+      summary: List specializations
+      tags:
+      - Specializations
+    post:
+      description: Create an new specialization
+      parameters:
+      - description: Specialization information
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.SpecializationInfoBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.Specialization'
+      security:
+      - ApiKeyAuth: []
+      summary: Create specialization
+      tags:
+      - Specializations
+  /specializations/{specialization_id}:
+    delete:
+      description: Delete a specialization by id
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - ApiKeyAuth: []
+      summary: Delete specialization
+      tags:
+      - Specializations
+    put:
+      description: Update a specialization by id
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.Specialization'
+      security:
+      - ApiKeyAuth: []
+      summary: Update specialization
+      tags:
+      - Specializations
+swagger: "2.0"

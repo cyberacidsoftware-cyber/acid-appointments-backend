@@ -1,0 +1,239 @@
+Command: create customer
+Sarah Martins Cunha
+SarahMartinsCunha@teleworm.us
+(62) 7200-3525
+May 9, 1976
+584.259.921-09
+
+Command: create customer
+Emilly Alves Castro
+EmillyAlvesCastro@teleworm.us
+(61) 7739-7516
+August 26, 2005
+193.741.054-46 
+
+Command: create customer
+Miguel Cavalcanti Sousa
+MiguelCavalcantiSousa@dayrep.com
+(11) 6261-9665
+May 7, 1976
+903.873.785-88 
+
+Command: create customer
+Vitór Costa Rocha
+VitorCostaRocha@teleworm.us
+(31) 9677-5804
+February 10, 2004
+314.139.288-97 
+
+Command: create customer
+Leila Ferreira Cunha
+LeilaFerreiraCunha@teleworm.us
+(71) 3637-7596
+September 30, 2000
+289.534.946-05 
+
+Command: create customer
+Kauã Azevedo Ferreira
+KauaAzevedoFerreira@teleworm.us
+(31) 5091-2887
+August 22, 1978
+835.316.910-07 
+
+Command: create customer
+Matheus Castro Azevedo
+MatheusCastroAzevedo@rhyta.com
+(11) 9943-9228
+June 15, 1954
+326.958.304-40 
+
+Command: create customer
+Kauã Pinto Lima
+KauaPintoLima@teleworm.us
+(11) 2220-2565
+May 31, 1994
+407.224.655-72 
+
+Command: create customer
+Kauê Ferreira Cardoso
+KaueFerreiraCardoso@teleworm.us
+(84) 4398-3832
+July 24, 1954
+524.941.076-60
+
+Command: create customer
+Ryan Ferreira Souza
+RyanFerreiraSouza@jourrapide.com
+(11) 4746-9915
+September 22, 1963
+451.436.949-73 
+
+--- 10 customers ---
+
+Command: create customer
+Júlio Melo Fernandes
+JulioMeloFernandes@dayrep.com
+(21) 3153-4336
+May 23, 1945
+835.097.081-21 
+
+Command: create customer
+Carolina Lima Fernandes
+CarolinaLimaFernandes@armyspy.com
+(31) 5237-8870
+January 13, 1956
+674.401.151-04 
+
+Command: create customer
+Pedro Castro Cardoso
+PedroCastroCardoso@teleworm.us
+(85) 9698-3199
+November 15, 1957
+205.554.715-19
+
+Command: create customer
+Gustavo Sousa Almeida
+GustavoSousaAlmeida@teleworm.us
+(11) 5916-5085
+July 14, 1975
+998.861.397-06 
+
+Command: create customer
+Daniel Fernandes Cardoso
+DanielFernandesCardoso@rhyta.com
+(62) 3507-2614
+July 2, 1967
+711.482.793-85 
+
+Command: create customer
+Clara Lima Sousa
+ClaraLimaSousa@dayrep.com
+(21) 6215-2746
+March 8, 1942
+929.300.026-11 
+
+Command: create customer
+Joao Santos Barbosa
+JoaoSantosBarbosa@teleworm.us
+(11) 3369-8115
+April 24, 1975
+630.132.887-60 
+
+Command: create customer
+Fernanda Goncalves Carvalho
+FernandaGoncalvesCarvalho@armyspy.com
+(92) 8559-9578
+July 7, 1946
+756.571.552-20 
+
+Command: create customer
+Kauan Gomes Fernandes
+KauanGomesFernandes@jourrapide.com
+(35) 7869-9209
+May 1, 1944
+373.801.681-34 
+
+Command: create customer
+Lucas Gomes Correia
+LucasGomesCorreia@armyspy.com
+(11) 3328-6111
+February 2, 1951
+458.512.149-88 
+
+--- 20 customers ---
+
+Command: create customer
+Anna Cavalcanti Araujo
+AnnaCavalcantiAraujo@teleworm.us
+(85) 2415-3931
+May 19, 1974
+369.363.323-15 
+
+Command: create customer
+Felipe Cunha Ribeiro
+FelipeCunhaRibeiro@armyspy.com
+(21) 7275-3494
+November 20, 1944
+605.820.702-95 
+
+Command: create customer
+Isabelle Correia Barros
+IsabelleCorreiaBarros@jourrapide.com
+(17) 5803-7530
+March 6, 1984
+877.235.906-44 
+
+Command: create customer
+Douglas Goncalves Araujo
+DouglasGoncalvesAraujo@dayrep.com
+(71) 2725-6201
+May 10, 1991
+368.319.900-88 
+
+Command: create customer
+Guilherme Rodrigues Carvalho
+GuilhermeRodriguesCarvalho@rhyta.com
+(61) 4743-6339
+December 7, 1998
+223.906.127-84 
+
+Command: create customer
+Eduarda Oliveira Souza
+EduardaOliveiraSouza@teleworm.us
+(47) 4615-5723
+May 31, 1947
+666.159.037-84 
+
+Command: create customer
+Marcos Santos Barros
+MarcosSantosBarros@armyspy.com
+(84) 5548-5142
+March 6, 1944
+886.616.407-09 
+
+Command: create customer
+Raissa Barros Carvalho
+RaissaBarrosCarvalho@armyspy.com
+(49) 9575-6853
+April 4, 2006
+839.516.636-26 
+
+Command: create customer
+Leonor Fernandes Rodrigues
+LeonorFernandesRodrigues@teleworm.us
+(61) 9369-9342
+July 26, 1979
+318.547.027-34 
+
+Command: create customer
+Mateus Cardoso Pereira
+MateusCardosoPereira@dayrep.com
+(27) 3843-4931
+December 26, 1994
+686.528.422-48 
+
+--- 30 customers ---
+
+Command: create services
+Terapias Integrativas: Terapia Ventosaterapia
+Terapias Integrativas: Terapia Shiatsu
+Terapias Integrativas: Terapia Reiki
+Terapias Integrativas: Terapia Osteopatia
+Terapias Integrativas: Terapia Quiropraxia
+Terapias Integrativas: Terapia RPG (Reeducação Postural Global)
+Terapias Integrativas: Terapia Hidroterapia
+Terapias Integrativas: Terapia Cromoterapia
+Terapias Integrativas: Terapia Aromaterapia
+Terapias Integrativas: Terapia Florais de Bach
+Pilates: Pilates Solo
+Pilates: Pilates com Aparelhos
+Estética: Estética Facial (Limpeza de Pele)
+Estética: Estética Facial (Peeling Químico)
+Estética: Estética Facial (Microagulhamento)
+Estética: Estética Facial (Radiofrequência Facial)
+Estética: Estética Corporal (Hidratação Corporal)
+Beleza: Design de Sobrancelhas
+Beleza: Alongamento de Cílios
+Yoga: Yoga Terapêutica
+
+--- 21 services ---

@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "golang.go",
+    "anweber.vscode-httpyac",
+    "tamasfe.even-better-toml"
+  ]
+}

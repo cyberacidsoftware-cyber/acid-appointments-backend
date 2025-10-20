@@ -1,0 +1,24 @@
+{
+  "[go]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "never",
+      "source.organizeImports": "never"
+    },
+    "editor.formatOnSave": false,
+  },
+  "editor.formatOnSave": false,
+  "cSpell.words": [
+    "cnpj",
+    "dtos",
+    "narg",
+    "sqlc",
+    "usecase"
+  ]
+  // "go.inlayHints.assignVariableTypes": true,
+  // "go.inlayHints.rangeVariableTypes": true,
+  // "go.inlayHints.parameterNames": true,
+  // "go.inlayHints.compositeLiteralFields": true,
+  // "go.inlayHints.compositeLiteralTypes": true,
+  // "go.inlayHints.functionTypeParameters": true,
+  // "go.inlayHints.constantValues": true,
+}

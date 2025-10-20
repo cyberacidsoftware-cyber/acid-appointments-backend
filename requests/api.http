@@ -1,0 +1,152 @@
+# @name Login
+POST {{$dotenv BASE_URL}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@admin.com",
+  "password": "seNH@zoNA"
+}
+
+# @name IsHealthy
+GET {{$dotenv BASE_URL}}/health
+
+###
+
+# @name GetCustomers
+GET {{$dotenv BASE_URL}}/customers
+Authorization: Bearer {{TOKEN}}
+###
+
+# @name GetCustomer
+GET {{$dotenv BASE_URL}}/customers/2a3513fd-a5ff-4975-b29e-eb60c10d8ff9
+Authorization: Bearer {{TOKEN}}
+
+###
+
+# @name CreateCustomers
+POST {{$dotenv BASE_URL}}/customers
+Authorization: Bearer {{TOKEN}}
+
+{
+  "name": "Tester",
+  "email": "Tester@testing.com",
+  "phone": "1234567810",
+  "birthdate": "1952-08-06T00:00:00Z",
+  "cpf": "60474644243"
+}
+
+###
+
+# @name UpdateCustomers
+PUT {{$dotenv BASE_URL}}/customers/2a3513fd-a5ff-4975-b29e-eb60c10d8ff9
+Authorization: Bearer {{TOKEN}}
+
+{
+  "name": "Tester2",
+  "email": "Tester@testing.com",
+  "phone": "1234567810",
+  "birthdate": "1952-08-06T00:00:00Z",
+  "cpf": "60474644243"
+}
+
+###
+
+# @name GetSpecialists
+GET {{$dotenv BASE_URL}}/specialists
+Authorization: Bearer {{TOKEN}}
+
+###
+
+# @name UpdateSpecialist
+PUT {{$dotenv BASE_URL}}/specialists/6d4f88a8-1c28-420b-938c-9b830ce10e74
+Authorization: Bearer {{TOKEN}}
+
+{
+  "name": "Especialista 2X",
+  "email": "especialista2x@especialista.com",
+  "phone": "1195946262",
+  "birthdate": "2000-10-09",
+  "cpf": "57897103013",
+  "cnpj": "86120755000145",
+  "services": [
+    {
+      "duration": 120,
+      "price": 20000,
+      "serviceNameId": "e8eab47b-af76-4a12-9838-58bb14db0594"
+    }
+  ]
+}
+
+###
+
+# @name GetServiceGroups
+GET {{$dotenv BASE_URL}}/service-groups
+Authorization: Bearer {{TOKEN}}
+
+###
+
+# @name GetServices
+GET {{$dotenv BASE_URL}}/services
+Authorization: Bearer {{TOKEN}}
+
+###
+
+# @name GetAppointments
+GET {{$dotenv BASE_URL}}/appointments
+  ?q=
+  # &startDate=2000-01-01
+  # &endDate=2031-12-31
+  # &customerId=
+  # &specialistId=
+  # &serviceNameId=
+  # &status=0
+  # &page=0
+  # &pageSize=100
+Authorization: Bearer {{TOKEN}}
+
+###
+
+# @name CountAppointments
+GET {{$dotenv BASE_URL}}/appointments/count
+  ?q=
+  &startDate=2024-12-15
+  &endDate=2024-12-15
+  # &customerId=
+  # &specialistId=
+  # &serviceNameId=
+  # &status=0
+  # &page=0
+  # &pageSize=100
+Authorization: Bearer {{TOKEN}}
+
+###
+
+# @name GetAppointmentsCalendar
+GET {{$dotenv BASE_URL}}/appointments/calendar
+  ?q=
+  &year=2023
+  &startDate=2024-01-01
+  &endDate=2024-12-31
+Authorization: Bearer {{TOKEN}}
+
+###
+
+# @name GetAppointmentsCalendarCount
+GET {{$dotenv BASE_URL}}/appointments/calendar/count
+  ?q=
+  &year=2023
+  &startDate=2024-01-01
+  &endDate=2024-12-31
+Authorization: Bearer {{TOKEN}}
+
+###
+
+# @name CreateAppointment
+POST {{$dotenv BASE_URL}}/appointments
+Authorization: Bearer {{TOKEN}}
+{
+  "date": "2025-02-22",
+  "time": "21:00:00",
+  "serviceId": "f0070e3f-666d-4a9f-ad9f-95415d3a97f4",
+  "customerId": "84f5e050-79c5-490f-9b9b-5189b25ebfb1"
+}

@@ -1,0 +1,372 @@
+Command: create admin
+Admin
+admin@admin.com
+seNH@zoNA
+
+
+Command: create secretary
+Brenda Araujo Azevedo
+BrendaAraujoAzevedo@teleworm.us
+123mudar
+(94) 4019-9572
+16-03-1954
+900.394.636-13
+20.573.002/0001-87
+
+Command: create secretary
+Kauan Ferreira Dias
+KauanFerreiraDias@armyspy.com
+123mudar
+(11) 8538-6773
+29-09-1963
+165.204.243-15
+55.308.735/0001-79
+
+
+Command: create customer
+Tiago Almeida Pinto
+TiagoAlmeidaPinto@dayrep.com
+(11) 2176-2378
+06-08-1952
+604.746.442-43
+
+Command: create customer
+Gabrielle Sousa Martins
+-
+(17) 5655-6668
+29-04-1977
+567.565.925-05
+
+
+Command: create specialist
+Letícia Martins Barbosa
+LeticiaMartinsBarbosa@jourrapide.com
+(11) 4257-5991
+02-01-2002
+156.463.463-98
+85.431.927/0001-39
+
+Command: create specialist
+Livia Sousa Ferreira
+LiviaSousaFerreira@rhyta.com
+(92) 6951-7890
+14-01-1960
+619.822.991-26
+81.036.140/0001-11
+
+Command: create specialization
+Massagem
+
+Command: create service
+Massagem
+Massagem Relaxante
+
+Command: create service
+Massagem
+Massagem Terapêutica
+
+Command: create service
+Massagem
+Massagem Desportiva
+
+Command: create service
+Massagem
+Drenagem Linfática
+
+Command: create service
+Massagem
+Reflexologia Podal
+
+
+Command: create specialization
+Fisioterapia
+
+Command: create service
+Fisioterapia
+Fisioterapia Ortopédica
+
+Command: create service
+Fisioterapia
+Fisioterapia Neurológica
+
+Command: create service
+Fisioterapia
+Reabilitação Pós-Cirúrgica
+
+Command: create service
+Fisioterapia
+Pilates Terapêutico
+
+Command: create service
+Fisioterapia
+Fisioterapia Respiratória
+
+
+Command: create specialization
+Depilação
+
+Command: create service
+Depilação
+Depilação a Laser (Axilas)
+
+Command: create service
+Depilação
+Depilação a Laser (Pernas Inteiras)
+
+Command: create service
+Depilação
+Depilação com Cera (Buço e Sobrancelhas)
+
+Command: create service
+Depilação
+Depilação com Cera (Pernas Inteiras)
+
+Command: create service
+Depilação
+Depilação com Cera (Região Íntima)
+
+
+Command: create specialization
+Acupuntura
+
+Command: create service
+Acupuntura
+Acupuntura Tradicional
+
+Command: create service
+Acupuntura
+Acupuntura Estética (Rosto)
+
+Command: create service
+Acupuntura
+Acupuntura para Alívio da Dor
+
+Command: create service
+Acupuntura
+Auriculoterapia
+
+Command: create service
+Acupuntura
+Acupuntura para Redução de Estresse
+
+
+Command: create specialist hours
+LeticiaMartinsBarbosa@jourrapide.com
+Monday
+Saturday
+10:00
+12:00
+
+Command: create specialist hours
+LeticiaMartinsBarbosa@jourrapide.com
+Monday
+Friday
+14:00
+16:00
+
+Command: create specialist hours
+LeticiaMartinsBarbosa@jourrapide.com
+Saturday
+Saturday
+08:00
+12:00
+
+
+Command: create specialist hours
+LiviaSousaFerreira@rhyta.com
+Monday
+Friday
+14:00
+18:00
+
+
+Command: create specialist service
+LeticiaMartinsBarbosa@jourrapide.com
+Acupuntura Tradicional
+R$ 150,00
+50
+
+Command: create specialist service
+LeticiaMartinsBarbosa@jourrapide.com
+Acupuntura Estética (Rosto)
+R$ 180,00
+60
+
+Command: create specialist service
+LeticiaMartinsBarbosa@jourrapide.com
+Acupuntura para Alívio da Dor
+R$ 160,00
+45
+
+Command: create specialist service
+LeticiaMartinsBarbosa@jourrapide.com
+Auriculoterapia
+R$ 90,00
+30
+
+Command: create specialist service
+LeticiaMartinsBarbosa@jourrapide.com
+Acupuntura para Redução de Estresse
+R$ 150,00
+50
+
+
+Command: create specialist service
+LeticiaMartinsBarbosa@jourrapide.com
+Depilação a Laser (Axilas)
+R$ 200,00
+30
+
+Command: create specialist service
+LeticiaMartinsBarbosa@jourrapide.com
+Depilação a Laser (Pernas Inteiras)
+R$ 450,00
+90
+
+Command: create specialist service
+LeticiaMartinsBarbosa@jourrapide.com
+Depilação com Cera (Buço e Sobrancelhas)
+R$ 60,00
+20
+
+Command: create specialist service
+LeticiaMartinsBarbosa@jourrapide.com
+Depilação com Cera (Pernas Inteiras)
+R$ 120,00
+60
+
+Command: create specialist service
+LeticiaMartinsBarbosa@jourrapide.com
+Depilação com Cera (Região Íntima)
+R$ 100,00
+40
+
+
+
+Command: create specialist service
+LiviaSousaFerreira@rhyta.com
+Massagem Relaxante
+R$ 150,00
+60
+
+Command: create specialist service
+LiviaSousaFerreira@rhyta.com
+Massagem Terapêutica
+R$ 180,00
+50
+
+Command: create specialist service
+LiviaSousaFerreira@rhyta.com
+Massagem Desportiva
+R$ 200,00
+70
+
+Command: create specialist service
+LiviaSousaFerreira@rhyta.com
+Drenagem Linfática
+R$ 170,00
+60
+
+Command: create specialist service
+LiviaSousaFerreira@rhyta.com
+Reflexologia Podal
+R$ 120,00
+40
+
+
+
+Command: create specialist service
+LiviaSousaFerreira@rhyta.com
+Fisioterapia Ortopédica
+R$ 130,00
+50
+
+Command: create specialist service
+LiviaSousaFerreira@rhyta.com
+Fisioterapia Neurológica
+R$ 150,00
+60
+
+Command: create specialist service
+LiviaSousaFerreira@rhyta.com
+Reabilitação Pós-Cirúrgica
+R$ 180,00
+60
+
+Command: create specialist service
+LiviaSousaFerreira@rhyta.com
+Pilates Terapêutico
+R$ 160,00
+60
+
+Command: create specialist service
+LiviaSousaFerreira@rhyta.com
+Fisioterapia Respiratória
+R$ 140,00
+45
+
+
+
+Command: create appointment
+(11) 2176-2378
+LiviaSousaFerreira@rhyta.com
+Reabilitação Pós-Cirúrgica
+December 2, 2024
+14:00
+
+Command: create appointment
+(11) 2176-2378
+LiviaSousaFerreira@rhyta.com
+Massagem Relaxante
+December 2, 2024
+15:00
+
+Command: create appointment
+(11) 2176-2378
+LiviaSousaFerreira@rhyta.com
+Reabilitação Pós-Cirúrgica
+December 9, 2024
+14:00
+
+Command: create appointment
+(11) 2176-2378
+LiviaSousaFerreira@rhyta.com
+Reabilitação Pós-Cirúrgica
+December 16, 2024
+14:00
+
+Command: create appointment
+(11) 2176-2378
+LiviaSousaFerreira@rhyta.com
+Reabilitação Pós-Cirúrgica
+December 23, 2024
+14:00
+
+
+Command: create appointment
+(17) 5655-6668
+LeticiaMartinsBarbosa@jourrapide.com
+Depilação a Laser (Axilas)
+December 23, 2024
+14:00
+
+Command: create appointment
+(17) 5655-6668
+LeticiaMartinsBarbosa@jourrapide.com
+Depilação a Laser (Pernas Inteiras)
+December 23, 2024
+15:00
+
+Command: create appointment
+(17) 5655-6668
+LeticiaMartinsBarbosa@jourrapide.com
+Depilação com Cera (Buço e Sobrancelhas)
+December 23, 2024
+16:30
+
+Command: create appointment
+(17) 5655-6668
+LeticiaMartinsBarbosa@jourrapide.com
+Depilação com Cera (Região Íntima)
+December 23, 2024
+16:50
