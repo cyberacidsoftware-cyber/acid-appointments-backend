@@ -15,7 +15,7 @@ services:
         condition: service_healthy
 
   db:
-    image: postgres:latest
+    image: postgres:17.6
     restart: unless-stopped
     ports:
       - ${APPOINTMENTS_DATABASE_PORT:-5432}:5432
