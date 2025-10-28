@@ -1,0 +1,1417 @@
+{
+  "info": {
+    "name": "Acid Appointments API",
+    "description": "Complete API collection for the Acid Appointments Backend - Medical Appointment Management System",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@staff.com\",\n  \"password\": \"123mudar\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            },
+            "description": "Authenticate user and get access/refresh tokens"
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{refreshToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/refresh",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "refresh"]
+            },
+            "description": "Refresh access token using refresh token"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Current User (Me)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "me"]
+            },
+            "description": "Get current authenticated user information"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            },
+            "description": "Check if the service is healthy"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Appointments",
+      "item": [
+        {
+          "name": "Get Appointment",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/appointments/{{appointmentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["appointments", "{{appointmentId}}"]
+            },
+            "description": "Get an appointment by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "List Appointments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/appointments?page=0&pageSize=10&startDate=2024-01-01&endDate=2024-12-31&serviceName=&specialist=&customer=",
+              "host": ["{{baseUrl}}"],
+              "path": ["appointments"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "startDate",
+                  "value": "2024-01-01"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2024-12-31"
+                },
+                {
+                  "key": "serviceName",
+                  "value": ""
+                },
+                {
+                  "key": "specialist",
+                  "value": ""
+                },
+                {
+                  "key": "customer",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get a paginated list of appointments with filters"
+          },
+          "response": []
+        },
+        {
+          "name": "Count Appointments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/appointments/count?startDate=2024-01-01&endDate=2024-12-31",
+              "host": ["{{baseUrl}}"],
+              "path": ["appointments", "count"],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "2024-01-01"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2024-12-31"
+                }
+              ]
+            },
+            "description": "Count appointments with filters"
+          },
+          "response": []
+        },
+        {
+          "name": "Calendar Appointments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/appointments/calendar?year=2024&startDate=2024-01-01&endDate=2024-12-31",
+              "host": ["{{baseUrl}}"],
+              "path": ["appointments", "calendar"],
+              "query": [
+                {
+                  "key": "year",
+                  "value": "2024"
+                },
+                {
+                  "key": "startDate",
+                  "value": "2024-01-01"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2024-12-31"
+                }
+              ]
+            },
+            "description": "Get appointments for calendar view"
+          },
+          "response": []
+        },
+        {
+          "name": "Calendar Appointments Count",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/appointments/calendar/count?year=2024",
+              "host": ["{{baseUrl}}"],
+              "path": ["appointments", "calendar", "count"],
+              "query": [
+                {
+                  "key": "year",
+                  "value": "2024"
+                }
+              ]
+            },
+            "description": "Get appointments count for calendar"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Appointment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"serviceId\": \"{{serviceId}}\",\n  \"date\": \"2024-12-01\",\n  \"time\": \"14:30:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/appointments",
+              "host": ["{{baseUrl}}"],
+              "path": ["appointments"]
+            },
+            "description": "Create a new appointment"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Appointment",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"2024-12-02\",\n  \"time\": \"15:30:00\",\n  \"status\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/appointments/{{appointmentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["appointments", "{{appointmentId}}"]
+            },
+            "description": "Update an appointment"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Appointment",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/appointments/{{appointmentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["appointments", "{{appointmentId}}"]
+            },
+            "description": "Delete an appointment"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "Get Customer",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{customerId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{customerId}}"]
+            },
+            "description": "Get a customer by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "List Customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/customers?page=0&pageSize=10&name=&cpf=&phone=",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "name",
+                  "value": ""
+                },
+                {
+                  "key": "cpf",
+                  "value": ""
+                },
+                {
+                  "key": "phone",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get a paginated list of customers with filters"
+          },
+          "response": []
+        },
+        {
+          "name": "Count Customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/customers/count?name=&cpf=&phone=",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "count"],
+              "query": [
+                {
+                  "key": "name",
+                  "value": ""
+                },
+                {
+                  "key": "cpf",
+                  "value": ""
+                },
+                {
+                  "key": "phone",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Count customers with filters"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"João Silva\",\n  \"email\": \"joao.silva@email.com\",\n  \"phone\": \"5511999887766\",\n  \"birthdate\": \"1990-05-15\",\n  \"cpf\": \"12345678901\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers"]
+            },
+            "description": "Create a new customer"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Customer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"João Silva Santos\",\n  \"email\": \"joao.santos@email.com\",\n  \"phone\": \"5511999887766\",\n  \"birthdate\": \"1990-05-15\",\n  \"cpf\": \"12345678901\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{customerId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{customerId}}"]
+            },
+            "description": "Update a customer"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Customer",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{customerId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{customerId}}"]
+            },
+            "description": "Delete a customer"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Secretaries",
+      "item": [
+        {
+          "name": "Get Secretary",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/secretaries/{{secretaryId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["secretaries", "{{secretaryId}}"]
+            },
+            "description": "Get a secretary by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "List Secretaries",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/secretaries?page=0&pageSize=10&name=&cpf=&phone=",
+              "host": ["{{baseUrl}}"],
+              "path": ["secretaries"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "name",
+                  "value": ""
+                },
+                {
+                  "key": "cpf",
+                  "value": ""
+                },
+                {
+                  "key": "phone",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get a paginated list of secretaries with filters"
+          },
+          "response": []
+        },
+        {
+          "name": "Count Secretaries",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/secretaries/count?name=&cpf=&phone=",
+              "host": ["{{baseUrl}}"],
+              "path": ["secretaries", "count"],
+              "query": [
+                {
+                  "key": "name",
+                  "value": ""
+                },
+                {
+                  "key": "cpf",
+                  "value": ""
+                },
+                {
+                  "key": "phone",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Count secretaries with filters"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Secretary",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Maria Secretária\",\n  \"email\": \"maria.secretaria@clinic.com\",\n  \"phone\": \"5511998877665\",\n  \"birthdate\": \"1985-08-20\",\n  \"password\": \"123mudar\",\n  \"cpf\": \"98765432100\",\n  \"cnpj\": \"12345678000195\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/secretaries",
+              "host": ["{{baseUrl}}"],
+              "path": ["secretaries"]
+            },
+            "description": "Create a new secretary"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Secretary",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Maria Secretária Silva\",\n  \"email\": \"maria.silva@clinic.com\",\n  \"phone\": \"5511998877665\",\n  \"birthdate\": \"1985-08-20\",\n  \"password\": \"novaSenha123\",\n  \"cpf\": \"98765432100\",\n  \"cnpj\": \"12345678000195\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/secretaries/{{secretaryId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["secretaries", "{{secretaryId}}"]
+            },
+            "description": "Update a secretary"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Secretary",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/secretaries/{{secretaryId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["secretaries", "{{secretaryId}}"]
+            },
+            "description": "Delete a secretary"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Specialists",
+      "item": [
+        {
+          "name": "Get Specialist",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/specialists/{{specialistId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["specialists", "{{specialistId}}"]
+            },
+            "description": "Get a specialist by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "List Specialists",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/specialists?page=0&pageSize=10&name=&cpf=&phone=",
+              "host": ["{{baseUrl}}"],
+              "path": ["specialists"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "name",
+                  "value": ""
+                },
+                {
+                  "key": "cpf",
+                  "value": ""
+                },
+                {
+                  "key": "phone",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get a paginated list of specialists with filters"
+          },
+          "response": []
+        },
+        {
+          "name": "Count Specialists",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/specialists/count?name=&cpf=&phone=",
+              "host": ["{{baseUrl}}"],
+              "path": ["specialists", "count"],
+              "query": [
+                {
+                  "key": "name",
+                  "value": ""
+                },
+                {
+                  "key": "cpf",
+                  "value": ""
+                },
+                {
+                  "key": "phone",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Count specialists with filters"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Specialist Appointments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/specialists/{{specialistId}}/appointments?date=2024-12-01",
+              "host": ["{{baseUrl}}"],
+              "path": ["specialists", "{{specialistId}}", "appointments"],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "2024-12-01"
+                }
+              ]
+            },
+            "description": "Get appointments for a specific specialist"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Specialist Specializations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/specialists/{{specialistId}}/specializations",
+              "host": ["{{baseUrl}}"],
+              "path": ["specialists", "{{specialistId}}", "specializations"]
+            },
+            "description": "Get specializations for a specific specialist"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Specialist Services",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/specialists/{{specialistId}}/services",
+              "host": ["{{baseUrl}}"],
+              "path": ["specialists", "{{specialistId}}", "services"]
+            },
+            "description": "Get services for a specific specialist"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Specialist Service",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/specialists/{{specialistId}}/services/{{serviceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["specialists", "{{specialistId}}", "services", "{{serviceId}}"]
+            },
+            "description": "Get a specific service for a specialist"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Specialist",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr. Carlos Especialista\",\n  \"email\": \"dr.carlos@clinic.com\",\n  \"phone\": \"5511997788665\",\n  \"birthdate\": \"1975-03-10\",\n  \"cpf\": \"11122233344\",\n  \"cnpj\": \"98765432000100\",\n  \"services\": [\n    {\n      \"serviceNameId\": \"{{serviceNameId}}\",\n      \"price\": 15000,\n      \"duration\": 60\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/specialists",
+              "host": ["{{baseUrl}}"],
+              "path": ["specialists"]
+            },
+            "description": "Create a new specialist with services"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Specialist",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr. Carlos Silva Especialista\",\n  \"email\": \"dr.carlos.silva@clinic.com\",\n  \"phone\": \"5511997788665\",\n  \"birthdate\": \"1975-03-10\",\n  \"cpf\": \"11122233344\",\n  \"cnpj\": \"98765432000100\",\n  \"services\": [\n    {\n      \"serviceNameId\": \"{{serviceNameId}}\",\n      \"price\": 16000,\n      \"duration\": 60\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/specialists/{{specialistId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["specialists", "{{specialistId}}"]
+            },
+            "description": "Update a specialist"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Specialist",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/specialists/{{specialistId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["specialists", "{{specialistId}}"]
+            },
+            "description": "Delete a specialist"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Specializations",
+      "item": [
+        {
+          "name": "List Specializations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/specializations",
+              "host": ["{{baseUrl}}"],
+              "path": ["specializations"]
+            },
+            "description": "Get all specializations"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Specialization",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cardiologia\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/specializations",
+              "host": ["{{baseUrl}}"],
+              "path": ["specializations"]
+            },
+            "description": "Create a new specialization"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Specialization",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cardiologia Avançada\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/specializations/{{specializationId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["specializations", "{{specializationId}}"]
+            },
+            "description": "Update a specialization"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Specialization",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/specializations/{{specializationId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["specializations", "{{specializationId}}"]
+            },
+            "description": "Delete a specialization"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Services",
+      "item": [
+        {
+          "name": "Get Service",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/services/{{serviceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["services", "{{serviceId}}"]
+            },
+            "description": "Get a service by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "List Services",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/services?page=0&pageSize=10&service=&specialist=&specialization=",
+              "host": ["{{baseUrl}}"],
+              "path": ["services"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "service",
+                  "value": ""
+                },
+                {
+                  "key": "specialist",
+                  "value": ""
+                },
+                {
+                  "key": "specialization",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get a paginated list of services with filters"
+          },
+          "response": []
+        },
+        {
+          "name": "Count Services",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/services/count?service=&specialist=&specialization=",
+              "host": ["{{baseUrl}}"],
+              "path": ["services", "count"],
+              "query": [
+                {
+                  "key": "service",
+                  "value": ""
+                },
+                {
+                  "key": "specialist",
+                  "value": ""
+                },
+                {
+                  "key": "specialization",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Count services with filters"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Service",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"specialistId\": \"{{specialistId}}\",\n  \"serviceNameId\": \"{{serviceNameId}}\",\n  \"price\": 12000,\n  \"duration\": 45\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/services",
+              "host": ["{{baseUrl}}"],
+              "path": ["services"]
+            },
+            "description": "Create a new service"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Service",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"serviceNameId\": \"{{serviceNameId}}\",\n  \"price\": 13000,\n  \"duration\": 50\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/services/{{serviceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["services", "{{serviceId}}"]
+            },
+            "description": "Update a service"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Service",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/services/{{serviceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["services", "{{serviceId}}"]
+            },
+            "description": "Delete a service"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Services Available",
+      "item": [
+        {
+          "name": "List Services Available",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/services-available",
+              "host": ["{{baseUrl}}"],
+              "path": ["services-available"]
+            },
+            "description": "Get all available services (service groups)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Service Available",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/services-available/{{serviceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["services-available", "{{serviceId}}"]
+            },
+            "description": "Get a specific available service"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Service Available",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Consulta Cardiológica\",\n  \"specialization\": \"Cardiologia\",\n  \"specializationId\": \"{{specializationId}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/services-available",
+              "host": ["{{baseUrl}}"],
+              "path": ["services-available"]
+            },
+            "description": "Create a new available service"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Service Available",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Consulta Cardiológica Completa\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/services-available/{{serviceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["services-available", "{{serviceId}}"]
+            },
+            "description": "Update an available service"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Service Available",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/services-available/{{serviceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["services-available", "{{serviceId}}"]
+            },
+            "description": "Delete an available service"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Service Groups",
+      "item": [
+        {
+          "name": "Get Service Groups",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/service-groups",
+              "host": ["{{baseUrl}}"],
+              "path": ["service-groups"]
+            },
+            "description": "Get service groups (specializations with their services)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Testing (TEST Environment Only)",
+      "item": [
+        {
+          "name": "Test Stats",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/test/stats",
+              "host": ["{{baseUrl}}"],
+              "path": ["test", "stats"]
+            },
+            "description": "Get test environment statistics (only available in TEST environment)"
+          },
+          "response": []
+        },
+        {
+          "name": "Test Init",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/test/init",
+              "host": ["{{baseUrl}}"],
+              "path": ["test", "init"]
+            },
+            "description": "Initialize test environment with default admin user (only available in TEST environment)"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "description": "Base URL for the API"
+    },
+    {
+      "key": "accessToken",
+      "value": "",
+      "description": "JWT Access Token - Set this after login"
+    },
+    {
+      "key": "refreshToken",
+      "value": "",
+      "description": "JWT Refresh Token - Set this after login"
+    },
+    {
+      "key": "appointmentId",
+      "value": "",
+      "description": "UUID of an appointment"
+    },
+    {
+      "key": "customerId",
+      "value": "",
+      "description": "UUID of a customer"
+    },
+    {
+      "key": "secretaryId",
+      "value": "",
+      "description": "UUID of a secretary"
+    },
+    {
+      "key": "specialistId",
+      "value": "",
+      "description": "UUID of a specialist"
+    },
+    {
+      "key": "specializationId",
+      "value": "",
+      "description": "UUID of a specialization"
+    },
+    {
+      "key": "serviceId",
+      "value": "",
+      "description": "UUID of a service"
+    },
+    {
+      "key": "serviceNameId",
+      "value": "",
+      "description": "UUID of a service name"
+    }
+  ]
+}
